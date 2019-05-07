@@ -6,14 +6,18 @@ const express = require('express')
 const app = express()
 const sqlite = require('sqlite3').verbose()
 //
-const { ecomAuth } = require('ecomplus-app-sdk')
-const db = new sqlite.Database(process.env.ECOM_AUTH_DB)
+const { ecomAuth, setup } = require('ecomplus-app-sdk')
 let appConfig = {}
 
-if (process.argv[2]) {
-  appConfig = fs.readFileSync(process.argv[2], 'utf8')
+if (process.argv[2] === '--config') {
+  appConfig = fs.readFileSync(process.argv[3], 'utf8')
   appConfig = JSON.parse(appConfig)
+} else {
+  console.log('\nflag --config not found \ntry: ecomplus-app-server --config /path/to/app-config.json')
+  process.exit(1)
 }
+
+setup(appConfig.ecom_auth_db)
 
 ecomAuth.then(appSdk => {
   // configure setup for stores
@@ -35,7 +39,10 @@ ecomAuth.catch(err => {
   }, 1000)
 })
 
-const port = appConfig.port || 3000
+const port = appConfig.port || 5000
+
+// config db
+const db = new sqlite.Database(appConfig.ecom_auth_db)
 
 // middleware
 const middleware = require('./lib/token')(appConfig)
