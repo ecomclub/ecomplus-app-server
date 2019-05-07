@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "App setup and authentication as microservice with Express",
   "main": "main.js",
+  "bin": {
+    "ecomplus-app-server": "main.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
