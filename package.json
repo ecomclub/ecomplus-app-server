@@ -1,0 +1,26 @@
+{
+  "name": "ecomplus-app-server",
+  "version": "0.0.1",
+  "description": "App setup and authentication as microservice with Express",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/ecomplus-app-server.git"
+  },
+  "author": "Talisson Ferreira <talissonf@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ecomclub/ecomplus-app-server/issues"
+  },
+  "homepage": "https://github.com/ecomclub/ecomplus-app-server#readme",
+  "dependencies": {
+    "console-files": "^2.2.0",
+    "ecomplus-app-sdk": "^1.9.7",
+    "express": "^4.16.4",
+    "request": "^2.88.0",
+    "sqlite3": "^4.0.6"
+  }
+}
