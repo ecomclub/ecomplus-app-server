@@ -1,6 +1,6 @@
 {
   "name": "ecomplus-app-server",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "App setup and authentication as microservice with Express",
   "main": "main.js",
   "bin": {
